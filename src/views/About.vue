@@ -14,11 +14,13 @@
 <script>
 export default {
   data () {
+
     return {
       isShowDrag: false
     }
   },
   methods: {
+
     handleClick () {
       this.isShowDrag = true
     },

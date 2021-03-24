@@ -39,18 +39,20 @@ export default {
         visible (val) {
             if (val) {
                 this.$emit('open')
+                this.closed = false
             } else {
-                this.$emit('close')
+                if (!this.closed) this.$emit('close')
             }
         }
     },
     data () {
         return {
-
+            closed: false
         }
     },
     methods: {
         handleMouseDown (e) {
+            
             let spaceX = e.clientX - this.$refs.lDrag.offsetLeft
             let spaceY = e.clientY - this.$refs.lDrag.offsetTop
             document.onselectstart = function() { return false }
@@ -80,6 +82,7 @@ export default {
         handleClose () {
             this.$emit('update:visible', false)
             this.$emit('close')
+            this.closed = true
         }
         
     }    
