@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
     <div @click="handleClick">点击打开拖拽组件</div>
     <l-drag
       title="提示"
@@ -8,13 +7,15 @@
       width="40%"
       @open="handleOpen"
       @close="handleClose">
+      <div>1434324231432</div>
+      <div slot="footer">2545435342</div>
     </l-drag>
-  </div>
+    
+  </div>  
 </template>
 <script>
 export default {
   data () {
-
     return {
       isShowDrag: false
     }
@@ -25,10 +26,10 @@ export default {
       this.isShowDrag = true
     },
     handleOpen () {
-      console.log(111)
+
     },
     handleClose () {
-      console.log(222)
+
     }
   }
 }

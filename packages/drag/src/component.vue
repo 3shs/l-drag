@@ -12,7 +12,12 @@
                 <i class="iconfont icon-guanbi"></i>
             </span>
         </div>
-        
+        <div class="l-drag-body" v-if="rendered">
+            <slot></slot>
+        </div>
+        <div class="l-drag-footer" v-if="$slots.footer">
+            <slot name="footer"></slot>
+        </div>
     </div>
 </template>
 <script>
@@ -25,12 +30,23 @@ export default {
         },
         title: String,
         width: String,
+        top: {
+            type: String,
+            default: '15vh'
+        }
+    },
+    data () {
+        return {
+            closed: false,
+            rendered: false
+        }
     },
     computed: {
         style () {
             let style = {}
             if (this.width) {
                 style.width = this.width
+                style.top = this.top
             }
             return style
         }
@@ -38,6 +54,9 @@ export default {
     watch: {
         visible (val) {
             if (val) {
+                if (!this.rendered) {
+                    this.rendered = true
+                }
                 this.$emit('open')
                 this.closed = false
             } else {
@@ -45,21 +64,15 @@ export default {
             }
         }
     },
-    data () {
-        return {
-            closed: false
-        }
-    },
     methods: {
         handleMouseDown (e) {
-            
             let spaceX = e.clientX - this.$refs.lDrag.offsetLeft
             let spaceY = e.clientY - this.$refs.lDrag.offsetTop
             document.onselectstart = function() { return false }
             document.ondragstart = function() { return false }
             this.$refs.lDrag.style.cursor = 'move'
             document.onmousemove = e => {
-                let l = e.clientX - spaceX 
+                let l = e.clientX - spaceX
                 let t = e.clientY - spaceY
                 if (l < 0) {
                     l = 0
@@ -90,6 +103,7 @@ export default {
 </script>
 <style>
 .l-drag {
+    box-sizing: border-box;
     min-width: 500px;
     min-height: 200px;
     background: #fff;
@@ -112,5 +126,11 @@ export default {
     top: 20px;
     right: 20px;
     cursor: pointer;
+}
+.l-drag-body {
+    padding: 30px 20px;
+}
+.l-drag-footer {
+    padding: 10px 20px 20px;
 }
 </style>
