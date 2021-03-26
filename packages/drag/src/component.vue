@@ -66,7 +66,7 @@ export default {
     },
     methods: {
         handleMouseDown (e) {
-            let spaceX = e.clientX - this.$refs.lDrag.offsetLeft
+            let spaceX = e.clientX - this.$refs.lDrag.offsetLeft + (this.$refs.lDrag.offsetWidth / 2)
             let spaceY = e.clientY - this.$refs.lDrag.offsetTop
             document.onselectstart = function() { return false }
             document.ondragstart = function() { return false }
@@ -84,7 +84,7 @@ export default {
                 } else if (t> window.innerHeight - this.$refs.lDrag.offsetHeight) {  
                     t = window.innerHeight - this.$refs.lDrag.offsetHeight
                 } 
-                this.$refs.lDrag.style.left = l + 'px'
+                this.$refs.lDrag.style.left = l + (this.$refs.lDrag.offsetWidth / 2) + 'px'
                 this.$refs.lDrag.style.top = t + 'px'
             }
         },
@@ -108,8 +108,10 @@ export default {
     min-height: 200px;
     background: #fff;
     position: absolute;
-    box-shadow: 0 0 3px rgba(0,0,0,.3);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     top: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .l-drag-header {
     padding: 20px 20px 10px;

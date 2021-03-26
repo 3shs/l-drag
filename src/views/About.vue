@@ -21,7 +21,6 @@ export default {
     }
   },
   methods: {
-
     handleClick () {
       this.isShowDrag = true
     },
