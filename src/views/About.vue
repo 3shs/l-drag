@@ -7,8 +7,6 @@
       width="40%"
       @open="handleOpen"
       @close="handleClose">
-      <div>1434324231432</div>
-      <div slot="footer">2545435342</div>
     </l-drag>
     
   </div>  
