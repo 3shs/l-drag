@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import LDrag from './../packages/drag/index'
-import './../src/assets/icon/iconfont.css'
-
+import LDrag from './../lib/ldrag.umd.min'
+import './../lib/ldrag.css'
+// import LDrag from './../packages/drag/index'
 Vue.config.productionTip = false
 
 Vue.use(LDrag)

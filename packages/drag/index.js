@@ -1,19 +1,7 @@
 import LDrag from './src/component.vue'
 
-const components = [
-    LDrag
-]
-const install = function (Vue) {
-    if (install.installed) return
-    components.map( component => Vue.component(component.name, component))
+LDrag.install = function(Vue) {
+    Vue.component(LDrag.name, LDrag)
 }
 
-if (typeof window !== 'undefined' && window.Vue) {
-    install(window.Vue)
-}
-
-
-export default {
-    install,
-    LDrag
-}
+export default LDrag

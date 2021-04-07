@@ -23,7 +23,6 @@ export default {
       this.isShowDrag = true
     },
     handleOpen () {
-
     },
     handleClose () {
 
