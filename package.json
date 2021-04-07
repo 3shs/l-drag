@@ -1,7 +1,23 @@
 {
   "name": "l-drag",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "lib/ldrag.umd.min.js",
+  "style": "lib/ldrag.css",
+  "files": [
+    "lib",
+    "src",
+    "packages"
+  ],
+  "keywords": [
+    "drag",
+    "vue",
+    "components"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3shs/l-drag.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
