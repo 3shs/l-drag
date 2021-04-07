@@ -1,6 +1,6 @@
 {
   "name": "l-drag",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": false,
   "main": "lib/ldrag.umd.min.js",
   "style": "lib/ldrag.css",
