@@ -126,11 +126,12 @@ export default {
     min-width: 500px;
     min-height: 200px;
     background: #fff;
-    position: absolute;
+    position: fixed;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     top: 15vh;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 9999;
 }
 .l-drag-header {
     padding: 20px 20px 10px;
